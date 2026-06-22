@@ -1,0 +1,6 @@
+{
+  "name": "Palacio Cantón PZO",
+  "description": "Menú profesional con asistente de inteligencia artificial, carrito de compras, opciones de pago móvil, Zelle y delivery en tiempo real por sectores para el icónico Palacio Cantón de Puerto Ordaz, Venezuela.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
