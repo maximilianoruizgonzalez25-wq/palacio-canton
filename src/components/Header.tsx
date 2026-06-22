@@ -70,12 +70,12 @@ export default function Header({
 
         {/* Brand Logo - Scaled and aligned to mimic Instagram Logo */}
         <div 
-          className="flex items-center space-x-3.5 cursor-pointer group" 
+          className="flex items-center space-x-2 sm:space-x-3.5 cursor-pointer group flex-shrink-0" 
           onClick={() => setView('menu')}
           id="header-brand"
         >
           {/* Beautiful Official Dragon Logo */}
-          <div className="relative w-12 h-12 sm:w-14 sm:h-14 flex-shrink-0 transform group-hover:scale-105 transition-transform duration-300 rounded-full border-2 border-[#C5A033] overflow-hidden shadow-lg shadow-[#C5A033]/15 bg-black">
+          <div className="relative w-10 h-10 sm:w-14 sm:h-14 flex-shrink-0 transform group-hover:scale-105 transition-transform duration-300 rounded-full border-2 border-[#C5A033] overflow-hidden shadow-lg shadow-[#C5A033]/15 bg-black">
             <img 
               src={restaurantLogo} 
               alt="Logo Palacio Cantón" 
@@ -84,36 +84,36 @@ export default function Header({
             />
           </div>
 
-          <div>
+          <div className="flex flex-col justify-center">
             <div className="flex items-center">
               {/* Calligraphy Red Seal Stamp */}
-              <span className="cinnabar-stamp text-base font-bold w-6 h-6 rounded-sm flex items-center justify-center mr-2 select-none shadow-md" title="Palacio Cantón">
+              <span className="cinnabar-stamp text-xs sm:text-base font-bold w-5 h-5 sm:w-6 sm:h-6 rounded-sm hidden xs:flex items-center justify-center mr-1.5 sm:mr-2 select-none shadow-md" title="Palacio Cantón">
                 福
               </span>
-              <h1 className="text-lg sm:text-2xl font-serif font-black tracking-widest leading-none text-yellow-400 group-hover:text-[#C5A033] transition-colors uppercase">
+              <h1 className="text-sm xs:text-base sm:text-2xl font-serif font-black tracking-wider sm:tracking-widest leading-none text-yellow-400 group-hover:text-[#C5A033] transition-colors uppercase">
                 PALACIO CANTÓN
               </h1>
             </div>
-            <p className="text-[9px] sm:text-[10px] text-yellow-100/70 font-mono uppercase tracking-widest mt-1">
+            <p className="hidden sm:block text-[9px] sm:text-[10px] text-yellow-100/70 font-mono uppercase tracking-widest mt-1">
               C.C. Costa Granada • Puerto Ordaz
             </p>
           </div>
         </div>
 
         {/* Navigation Action Buttons */}
-        <div className="flex items-center space-x-2 sm:space-x-4" id="header-actions">
+        <div className="flex items-center space-x-1.5 sm:space-x-4 flex-shrink min-w-0 justify-end" id="header-actions">
           {/* Menu link */}
           <button
             onClick={() => setView('menu')}
-            className="px-2.5 py-2 rounded-md text-xs sm:text-sm font-serif font-bold text-yellow-100 hover:text-yellow-300 hover:bg-white/5 transition-colors focus:outline-none flex items-center space-x-1"
+            className="hidden xs:flex px-2 sm:px-2.5 py-1.5 sm:py-2 rounded-md text-[10px] sm:text-sm font-serif font-bold text-yellow-100 hover:text-yellow-300 hover:bg-white/5 transition-colors focus:outline-none items-center"
           >
-            <span>La Carta</span>
+            <span>Menú</span>
           </button>
 
           {/* Portal Cocina (Restaurant admin portal link) */}
           <button
             onClick={() => setView('admin')}
-            className="px-2.5 py-2 rounded-md text-xs sm:text-sm font-serif font-bold text-yellow-400 hover:text-yellow-200 hover:bg-white/5 border border-yellow-405/20 transition-colors focus:outline-none flex items-center space-x-1"
+            className="hidden md:flex px-2.5 py-2 rounded-md text-sm font-serif font-bold text-yellow-400 hover:text-yellow-200 hover:bg-white/5 border border-yellow-405/20 transition-colors focus:outline-none items-center space-x-1"
             id="admin-portal-header-btn"
           >
             <span>Portal Cocina 🏮</span>
@@ -122,36 +122,37 @@ export default function Header({
           {/* AI Chef Assistant shortcut */}
           <button
             onClick={() => setView('chef')}
-            className="px-3.5 py-2 rounded-md text-xs sm:text-sm font-serif font-extrabold bg-[#800C0D] hover:bg-[#9B1315] text-[#FCFAF3] border border-[#C5A033] hover:brightness-110 shadow-md transition-all duration-200 flex items-center space-x-2"
+            className="px-2 sm:px-3.5 py-1.5 sm:py-2 rounded-md text-[10px] sm:text-sm font-serif font-extrabold bg-[#800C0D] hover:bg-[#9B1315] text-[#FCFAF3] border border-[#C5A033] hover:brightness-110 shadow-md transition-all duration-200 flex items-center space-x-1 sm:space-x-2"
             id="chef-assistant-btn"
           >
-            <Sparkles className="w-3.5 h-3.5 text-yellow-400 animate-pulse" />
-            <span className="hidden xs:inline">Chef AI Chen</span>
-            <span className="xs:hidden">Chef AI</span>
+            <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-yellow-400 animate-pulse" />
+            <span className="hidden sm:inline">Chef AI Chen</span>
+            <span className="sm:hidden">Chef AI</span>
           </button>
 
           {/* Active Order Tracker */}
           {activeOrderId && (
             <button
               onClick={() => setView('tracker')}
-              className="px-3 py-2 rounded-md text-xs sm:text-sm font-serif font-bold border-2 border-green-600 bg-green-950/40 text-green-300 hover:bg-green-900/30 transition-all flex items-center space-x-1.5"
+              className="px-2 py-1.5 sm:px-3 sm:py-2 rounded-md text-[10px] sm:text-sm font-serif font-bold border-2 border-green-600 bg-green-950/40 text-green-300 hover:bg-green-900/30 transition-all flex items-center space-x-1 sm:space-x-1.5"
               id="active-tracker-btn"
             >
-              <div className="w-2 h-2 bg-green-400 rounded-full animate-ping" />
-              <span>Sigue tu pedido</span>
+              <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-400 rounded-full animate-ping" />
+              <span className="hidden sm:inline">Sigue tu pedido</span>
+              <span className="sm:hidden">Pedido</span>
             </button>
           )}
 
           {/* Shopping Bag Button */}
           <button
             onClick={() => setIsCartOpen(true)}
-            className="relative p-2 rounded-md hover:bg-white/10 transition-all text-yellow-400 focus:outline-none flex bg-white/5 border border-white/10"
+            className="relative p-1.5 sm:p-2 rounded-md hover:bg-white/10 transition-all text-yellow-400 focus:outline-none flex bg-white/5 border border-white/10 flex-shrink-0"
             aria-label="Ver carrito de compras"
             id="cart-trigger-btn"
           >
-            <ShoppingBag className="w-5.5 h-5.5 text-[#C5A033]" />
+            <ShoppingBag className="w-4 h-4 sm:w-5.5 sm:h-5.5 text-[#C5A033]" />
             {itemCount > 0 && (
-              <span className="absolute -top-1.5 -right-1.5 bg-[#800C0D] text-[#FCFAF3] font-sans font-extrabold text-[10px] w-5 h-5 rounded-full flex items-center justify-center border-2 border-[#C5A033] shadow-md animate-bounce">
+              <span className="absolute -top-1.5 -right-1.5 bg-[#800C0D] text-[#FCFAF3] font-sans font-extrabold text-[9px] sm:text-[10px] w-4 h-4 sm:w-5 sm:h-5 rounded-full flex items-center justify-center border sm:border-2 border-[#C5A033] shadow-md animate-bounce">
                 {itemCount}
               </span>
             )}
